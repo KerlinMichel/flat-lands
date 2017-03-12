@@ -65,6 +65,9 @@ nb-configuration.xml
 gradle-app.setting
 build/
 
+## Jar dependencies
+/libs
+
 ## OS Specific
 .DS_Store
 Thumbs.db
