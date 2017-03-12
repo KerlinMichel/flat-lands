@@ -1,4 +1,4 @@
-package com.dwarfmines.game.util;
+package com.dwarfmines.flatlands.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;

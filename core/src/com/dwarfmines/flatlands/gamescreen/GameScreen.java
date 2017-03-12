@@ -1,7 +1,7 @@
-package com.dwarfmines.game.gamescreen;
+package com.dwarfmines.flatlands.gamescreen;
 
 import com.badlogic.gdx.Screen;
-import com.dwarfmines.game.FlatLands;
+import com.dwarfmines.flatlands.FlatLands;
 
 public abstract class GameScreen implements Screen {
 	

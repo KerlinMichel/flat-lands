@@ -1,4 +1,4 @@
-package com.dwarfmines.game.entities;
+package com.dwarfmines.flatlands.entities;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.PolygonSprite;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.math.EarClippingTriangulator;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.dwarfmines.game.util.PolygonEngine;
+import com.dwarfmines.flatlands.util.PolygonEngine;
 
 public abstract class Polygon extends Actor {
 	

@@ -1,4 +1,4 @@
-package com.dwarfmines.game.util;
+package com.dwarfmines.flatlands.util;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;

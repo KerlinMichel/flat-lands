@@ -1,10 +1,10 @@
-package com.dwarfmines.game;
+package com.dwarfmines.flatlands;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.dwarfmines.game.gamescreen.MainMenu;
-import com.dwarfmines.game.gamescreen.TestScreen;
-import com.dwarfmines.game.util.UI;
+import com.dwarfmines.flatlands.gamescreen.MainMenu;
+import com.dwarfmines.flatlands.gamescreen.TestScreen;
+import com.dwarfmines.flatlands.util.UI;
 
 public class FlatLands extends Game {
 	public SpriteBatch batch;

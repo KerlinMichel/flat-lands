@@ -2,8 +2,9 @@ package com.dwarfmines.game;
 
 import com.badlogic.gdx.backends.iosmoe.IOSApplication;
 import com.badlogic.gdx.backends.iosmoe.IOSApplicationConfiguration;
+import com.dwarfmines.flatlands.FlatLands;
+
 import org.moe.natj.general.Pointer;
-import com.dwarfmines.game.FlatLands;
 
 import apple.uikit.c.UIKit;
 

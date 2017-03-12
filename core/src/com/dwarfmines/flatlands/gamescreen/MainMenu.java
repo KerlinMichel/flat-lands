@@ -1,15 +1,12 @@
-package com.dwarfmines.game.gamescreen;
+package com.dwarfmines.flatlands.gamescreen;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.EarClippingTriangulator;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.dwarfmines.game.FlatLands;
-import com.dwarfmines.game.entities.Polygon;
-import com.dwarfmines.game.util.UI;
+import com.dwarfmines.flatlands.FlatLands;
+import com.dwarfmines.flatlands.util.UI;
 
 public class MainMenu extends GameScreen {
 	

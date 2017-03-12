@@ -1,9 +1,9 @@
-package com.dwarfmines.game.gamescreen;
+package com.dwarfmines.flatlands.gamescreen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.dwarfmines.game.FlatLands;
+import com.dwarfmines.flatlands.FlatLands;
 
 public class TestScreen extends GameScreen {
 	
