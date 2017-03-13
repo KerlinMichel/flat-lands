@@ -21,5 +21,10 @@ public class Base extends Polygon {
 	public Base() {
 		super(vertices, Color.RED);
 	}
+	
+	public Base(float x, float y) {
+		super(vertices, Color.RED);
+		setPosition(x, y);
+	}
 
 }

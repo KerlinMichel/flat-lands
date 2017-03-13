@@ -16,7 +16,7 @@ public class MainMenu extends GameScreen {
 	private Stage stage;
 	private TextButton playBtn;
 
-	public MainMenu(FlatLands flGame) {
+	public MainMenu(final FlatLands flGame) {
 		super(flGame);
 		stage = new Stage();
 		playBtn = new TextButton("Play", UI.basicTextBtnSty);

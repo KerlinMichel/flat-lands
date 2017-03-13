@@ -31,9 +31,9 @@ public class Army {
 		numCircles = 0;
 	}
 	
-	public void init() {
+	public void init(float x, float y) {
 		switch(classType) {
-			case JAGS: structures.add(show(new Base())); break;
+			case JAGS: structures.add(show(new Base(x, y))); break;
 		}
 	}
 	
