@@ -3,6 +3,7 @@ package com.dwarfmines.flatlands.game;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.dwarfmines.flatlands.entities.Polygon;
 import com.dwarfmines.flatlands.jags.Base;
 
@@ -10,6 +11,8 @@ public class Army {
 	
 	private List<Polygon> structures;
 	private List<Polygon> units;
+	
+	private Stage stage;
 	
 	private int numCircles;
 	
@@ -30,8 +33,17 @@ public class Army {
 	
 	public void init() {
 		switch(classType) {
-			case JAGS: structures.add(new Base()); break;
+			case JAGS: structures.add(show(new Base())); break;
 		}
+	}
+	
+	private Polygon show(Polygon polygon) {
+		stage.addActor(polygon);
+		return polygon;
+	}
+	
+	public void setStage(Stage stage) {
+		this.stage = stage;
 	}
 
 }

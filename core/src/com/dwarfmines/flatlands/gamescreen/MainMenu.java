@@ -6,6 +6,9 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.dwarfmines.flatlands.FlatLands;
+import com.dwarfmines.flatlands.game.Army;
+import com.dwarfmines.flatlands.game.Flatworld;
+import com.dwarfmines.flatlands.game.Team;
 import com.dwarfmines.flatlands.util.UI;
 
 public class MainMenu extends GameScreen {
@@ -21,7 +24,10 @@ public class MainMenu extends GameScreen {
 		playBtn.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				System.out.println("Button pressed");
+				flGame.setScreen(new War(flGame, new Flatworld(
+						new Team(new Army(Army.Class.JAGS)),
+						new Team(new Army(Army.Class.JAGS))
+						)));
 			}
 		});
 	}
