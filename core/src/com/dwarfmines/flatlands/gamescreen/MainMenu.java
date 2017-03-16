@@ -24,8 +24,10 @@ public class MainMenu extends GameScreen {
 		playBtn.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
+				Army playerArmy = new Army(Army.Class.JAGS);
 				flGame.setScreen(new War(flGame, new Flatworld(
-						new Team(new Army(Army.Class.JAGS)),
+						playerArmy,
+						new Team(playerArmy),
 						new Team(new Army(Army.Class.JAGS))
 						)));
 			}

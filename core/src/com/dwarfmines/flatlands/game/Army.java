@@ -1,5 +1,6 @@
 package com.dwarfmines.flatlands.game;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,8 +10,8 @@ import com.dwarfmines.flatlands.jags.Base;
 
 public class Army {
 	
-	private List<Polygon> structures;
-	private List<Polygon> units;
+	public HashMap<java.lang.Class<? extends Polygon>, List<Polygon>> structures;
+	private HashMap<java.lang.Class<? extends Polygon>, List<Polygon>> units;
 	
 	private Stage stage;
 	
@@ -25,21 +26,26 @@ public class Army {
 	private final Class classType;
 	
 	public Army(Class classType) {
-		structures = new LinkedList<Polygon>();
-		units = new LinkedList<Polygon>();
+		structures = new HashMap<java.lang.Class<? extends Polygon>, List<Polygon>>();
+		units = new HashMap<java.lang.Class<? extends Polygon>, List<Polygon>>();
 		this.classType = classType;
 		numCircles = 0;
 	}
 	
 	public void init(float x, float y) {
 		switch(classType) {
-			case JAGS: structures.add(show(new Base(x, y))); break;
+			case JAGS: addStructure(new Base(x, y)); break;
 		}
 	}
 	
-	private Polygon show(Polygon polygon) {
+	private void addStructure(Polygon polygon) {
 		stage.addActor(polygon);
-		return polygon;
+		if(structures.containsKey(polygon.getClass()))
+			structures.get(polygon).add(polygon);
+		else {
+			structures.put(polygon.getClass(), new LinkedList<Polygon>());
+			structures.get(polygon.getClass()).add(polygon);
+		}
 	}
 	
 	public void setStage(Stage stage) {

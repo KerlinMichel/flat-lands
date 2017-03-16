@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.dwarfmines.flatlands.FlatLands;
 import com.dwarfmines.flatlands.entities.Polygon;
 import com.dwarfmines.flatlands.game.Flatworld;
+import com.dwarfmines.flatlands.game.WarHUD;
 import com.dwarfmines.flatlands.input.DesktopInput;
 
 public class War extends GameScreen {
@@ -14,6 +15,7 @@ public class War extends GameScreen {
 	private Stage stage;
 	private Flatworld world;
 	
+	private WarHUD warUI;
 	private DesktopInput desktopInput;
 
 	public War(FlatLands flGame, Flatworld world) {
@@ -21,6 +23,7 @@ public class War extends GameScreen {
 		stage = new Stage();
 		this.world = world;
 		desktopInput = new DesktopInput(stage);
+		warUI = new WarHUD(world.getPlayerArmy());
 	}
 
 	@Override
@@ -39,6 +42,7 @@ public class War extends GameScreen {
 	    Polygon.polyBatch.setProjectionMatrix(stage.getCamera().combined);
 		stage.act(delta);
 		stage.draw();
+		warUI.update(delta);
 	}
 
 	@Override

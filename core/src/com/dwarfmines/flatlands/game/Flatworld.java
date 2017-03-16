@@ -13,9 +13,11 @@ public class Flatworld {
 	
 	private List<Team> teams;
 	private Map map;
+	private Army playerArmy;
 	
-	public Flatworld(Team... teams) {
+	public Flatworld(Army playerArmy, Team... teams) {
 		this.teams = new LinkedList<Team>();
+		this.playerArmy = playerArmy;
 		for(Team team : teams)
 			this.teams.add(team);
 		map = MapUtil.randomMap(MapUtil.defaultWidth, MapUtil.defaultHeight, 2);
@@ -36,6 +38,10 @@ public class Flatworld {
 				army.init(pos.x, pos.y);
 			}
 		}
+	}
+	
+	public Army getPlayerArmy() {
+		return playerArmy;
 	}
 
 }
