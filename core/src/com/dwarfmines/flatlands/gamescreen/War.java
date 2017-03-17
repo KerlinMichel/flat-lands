@@ -15,7 +15,7 @@ public class War extends GameScreen {
 	private Stage stage;
 	private Flatworld world;
 	
-	private WarHUD warUI;
+	private WarHUD warHUD;
 	private DesktopInput desktopInput;
 
 	public War(FlatLands flGame, Flatworld world) {
@@ -23,14 +23,14 @@ public class War extends GameScreen {
 		stage = new Stage();
 		this.world = world;
 		desktopInput = new DesktopInput(stage);
-		warUI = new WarHUD(world.getPlayerArmy());
+		warHUD = new WarHUD(world.getPlayerArmy());
 	}
 
 	@Override
 	public void show() {	
 		InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, desktopInput);
 		Gdx.input.setInputProcessor(inputMultiplexer);
-		world.init(stage);
+		world.init(stage, warHUD);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class War extends GameScreen {
 	    Polygon.polyBatch.setProjectionMatrix(stage.getCamera().combined);
 		stage.act(delta);
 		stage.draw();
-		warUI.update(delta);
+		warHUD.update(delta);
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.PolygonSprite;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.math.EarClippingTriangulator;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.dwarfmines.flatlands.util.PolygonEngine;
 
 import pieces.Entity;
@@ -43,9 +44,9 @@ public abstract class Polygon extends Actor {
 	
 	@Override
 	public void setPosition(float x, float y) {
+		this.setX(x);
+		this.setY(y);
 		poly.setPosition(x, y);
 	}
-	
-	
 
 }
