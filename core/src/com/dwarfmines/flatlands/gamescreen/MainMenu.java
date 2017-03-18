@@ -9,7 +9,7 @@ import com.dwarfmines.flatlands.FlatLands;
 import com.dwarfmines.flatlands.game.Army;
 import com.dwarfmines.flatlands.game.Flatworld;
 import com.dwarfmines.flatlands.game.Team;
-import com.dwarfmines.flatlands.util.UI;
+import static com.dwarfmines.flatlands.util.UI.*;
 
 public class MainMenu extends GameScreen {
 	
@@ -19,8 +19,8 @@ public class MainMenu extends GameScreen {
 	public MainMenu(final FlatLands flGame) {
 		super(flGame);
 		stage = new Stage();
-		playBtn = new TextButton("Play", UI.basicTextBtnSty);
-		playBtn.setPosition(UI.centerX(playBtn), UI.centerY(playBtn));
+		playBtn = new TextButton("Play", basicTextBtnSty);
+		playBtn.setPosition(centerX(playBtn), centerY(playBtn));
 		playBtn.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {

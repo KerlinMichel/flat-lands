@@ -26,6 +26,16 @@ public class UI {
 		return ((Gdx.graphics.getHeight() - a.getHeight()) / 2);
 	}
 	
+	public static float screenRight() {
+		return Gdx.graphics.getWidth();
+	}
 	
-
+	public static float screenPercentWidth(float percent) {
+		return Gdx.graphics.getWidth()*(percent/100);
+	}
+	
+	public static float screenPercentHeight(float percent) {
+		return Gdx.graphics.getHeight()*(percent/100);
+	}
+	
 }
