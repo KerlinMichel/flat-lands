@@ -6,10 +6,10 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.dwarfmines.flatlands.entities.WarPolygon;
+import com.dwarfmines.flatlands.entities.WarUnitPolygon;
 import com.dwarfmines.flatlands.game.Army;
 
-public class Base extends WarPolygon {
+public class Base extends WarUnitPolygon {
 	
 	private final static float vertices[] = new float[] {
 			50,0,
@@ -42,6 +42,10 @@ public class Base extends WarPolygon {
 		polygonShape.set(vertices);
 		groundBody.createFixture(polygonShape, 0.0f); 
 		polygonShape.dispose();
+	}
+	
+	public void spawnUnit(WarUnitPolygon warUnit) {
+		
 	}
 
 }
