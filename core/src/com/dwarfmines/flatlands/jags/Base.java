@@ -1,6 +1,11 @@
 package com.dwarfmines.flatlands.jags;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 import com.dwarfmines.flatlands.entities.WarPolygon;
 import com.dwarfmines.flatlands.game.Army;
 
@@ -22,6 +27,21 @@ public class Base extends WarPolygon {
 	public Base(float x, float y, Army army) {
 		super(vertices, Color.RED, army);
 		setPosition(x, y);
+	}
+
+	@Override
+	public void initBox2dBody(World world) {
+		BodyDef groundBodyDef = new BodyDef();  
+
+		groundBodyDef.position.set(new Vector2(getX(), getY()));  
+
+		Body groundBody = world.createBody(groundBodyDef);  
+
+		PolygonShape polygonShape = new PolygonShape();
+		
+		polygonShape.set(vertices);
+		groundBody.createFixture(polygonShape, 0.0f); 
+		polygonShape.dispose();
 	}
 
 }
