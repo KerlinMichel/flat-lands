@@ -6,10 +6,14 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.dwarfmines.flatlands.entities.WarUnitPolygon;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.dwarfmines.flatlands.entities.components.UnitBuilder;
+import com.dwarfmines.flatlands.entities.template.Base;
 import com.dwarfmines.flatlands.game.Army;
+import static com.dwarfmines.flatlands.util.UI.*;
 
-public class Base extends WarUnitPolygon {
+public class JagsBase extends Base {
 	
 	private final static float vertices[] = new float[] {
 			50,0,
@@ -24,9 +28,24 @@ public class Base extends WarUnitPolygon {
 			50,50
 	};
 	
-	public Base(float x, float y, Army army) {
+	public JagsBase(float x, float y, Army army) {
 		super(vertices, Color.RED, army);
 		setPosition(x, y);
+		entity.addComponent(new UnitBuilder(this));
+		
+		addListener(new InputListener() {
+			@Override
+			public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+				//TODO: Check if click is inside the enclosed polygons
+				JagsBase.this.army.getWarHUD().setControls(JagsUI.JagsBaseUI());
+				return true;
+			}
+		});
+	}
+	
+	@Override
+	public void act(float dt) {
+		super.act(dt);
 	}
 
 	@Override
@@ -42,10 +61,6 @@ public class Base extends WarUnitPolygon {
 		polygonShape.set(vertices);
 		groundBody.createFixture(polygonShape, 0.0f); 
 		polygonShape.dispose();
-	}
-	
-	public void spawnUnit(WarUnitPolygon warUnit) {
-		
 	}
 
 }

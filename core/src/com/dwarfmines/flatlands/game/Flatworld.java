@@ -23,7 +23,8 @@ public class Flatworld {
 		this.playerArmy = playerArmy;
 		for(Team team : teams)
 			this.teams.add(team);
-		map = MapUtil.randomMap(MapUtil.defaultWidth, MapUtil.defaultHeight, 2);
+		//map = MapUtil.randomMap(MapUtil.defaultWidth, MapUtil.defaultHeight, 2);
+		map = MapUtil.randomMap(350, 350, 2);
 		world = new World(new Vector2(0,0), true);
 	}
 	

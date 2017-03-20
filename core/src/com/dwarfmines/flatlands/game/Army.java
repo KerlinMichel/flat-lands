@@ -6,7 +6,8 @@ import java.util.List;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.dwarfmines.flatlands.entities.InteractablePolygon;
-import com.dwarfmines.flatlands.jags.Base;
+import com.dwarfmines.flatlands.entities.WarUnitPolygon;
+import com.dwarfmines.flatlands.jags.JagsBase;
 
 public class Army {
 	
@@ -37,7 +38,7 @@ public class Army {
 	
 	public void init(float x, float y) {
 		switch(classType) {
-			case JAGS: addStructure(new Base(x, y, this)); break;
+			case JAGS: addStructure(new JagsBase(x, y, this)); break;
 		}
 	}
 	
@@ -45,14 +46,29 @@ public class Army {
 		this.warHUD = warHUD;
 	}
 	
-	private void addStructure(InteractablePolygon polygon) {
-		stage.addActor(polygon);
-		polygon.setWarHUD(warHUD);
-		if(structures.containsKey(polygon.getClass()))
-			structures.get(polygon).add(polygon);
+	public WarHUD getWarHUD() {
+		return warHUD;
+	}
+	
+	private void addStructure(InteractablePolygon structure) {
+		stage.addActor(structure);
+		structure.setWarHUD(warHUD);
+		if(structures.containsKey(structure.getClass()))
+			structures.get(structure).add(structure);
 		else {
-			structures.put(polygon.getClass(), new LinkedList<InteractablePolygon>());
-			structures.get(polygon.getClass()).add(polygon);
+			structures.put(structure.getClass(), new LinkedList<InteractablePolygon>());
+			structures.get(structure.getClass()).add(structure);
+		}
+	}
+	
+	public void addUnit(InteractablePolygon unit) {
+		stage.addActor(unit);
+		unit.setWarHUD(warHUD);
+		if(units.containsKey(unit.getClass()))
+			units.get(unit.getClass()).add(unit);
+		else {
+			units.put(unit.getClass(), new LinkedList<InteractablePolygon>());
+			units.get(unit.getClass()).add(unit);
 		}
 	}
 	

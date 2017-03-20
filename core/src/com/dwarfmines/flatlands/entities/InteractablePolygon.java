@@ -10,16 +10,18 @@ import com.dwarfmines.flatlands.game.WarHUD;
 
 public abstract class InteractablePolygon extends Polygon {
 	
-	private WarHUD warHUD;
+	protected WarHUD warHUD;
 	protected BodyDef bodyDef;
 	protected Body body;
 
 	public InteractablePolygon(float[] vertices, Color c) {
 		super(vertices, c);
+		bodyDef = new BodyDef();
 	}
 	
 	public InteractablePolygon(float[] vertices, Texture texture) {
 	    super(vertices, texture);
+	    bodyDef = new BodyDef();
 	}
 	
 	public abstract void initBox2dBody(World world);

@@ -8,7 +8,7 @@ import com.dwarfmines.flatlands.game.Army;
 
 public abstract class WarUnitPolygon extends InteractablePolygon {
 
-	private Army army;
+	protected Army army;
 	private int neededBuildPoints;
 	
 	public WarUnitPolygon(float[] vertices, Color c, Army army) {

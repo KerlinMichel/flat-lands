@@ -3,6 +3,7 @@ package com.dwarfmines.flatlands.entities.components;
 import java.util.LinkedList;
 
 import com.dwarfmines.flatlands.entities.WarUnitPolygon;
+import com.dwarfmines.flatlands.jags.JagsBase;
 
 import pieces.component.Component;
 
@@ -15,6 +16,11 @@ public class UnitBuilder extends Component {
 	private LinkedList<WarUnitPolygon> buildQueue;
 	private int neededBuildPoints;
 	private int totalBuildPoints;
+	private JagsBase base;
+	
+	public UnitBuilder(JagsBase base) {
+		super();
+	}
 
 	@Override
 	protected void update() {
