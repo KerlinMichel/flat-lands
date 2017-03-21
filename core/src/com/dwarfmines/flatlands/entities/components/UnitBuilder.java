@@ -3,7 +3,7 @@ package com.dwarfmines.flatlands.entities.components;
 import java.util.LinkedList;
 
 import com.dwarfmines.flatlands.entities.WarUnitPolygon;
-import com.dwarfmines.flatlands.jags.JagsBase;
+import com.dwarfmines.flatlands.entities.template.UnitSpawner;
 
 import pieces.component.Component;
 
@@ -16,10 +16,11 @@ public class UnitBuilder extends Component {
 	private LinkedList<WarUnitPolygon> buildQueue;
 	private int neededBuildPoints;
 	private int totalBuildPoints;
-	private JagsBase base;
+	private UnitSpawner spawner;
 	
-	public UnitBuilder(JagsBase base) {
+	public UnitBuilder(UnitSpawner spawner) {
 		super();
+		this.spawner = spawner;
 	}
 
 	@Override
@@ -30,7 +31,7 @@ public class UnitBuilder extends Component {
 			totalBuildPoints++;
 		} else {
 			WarUnitPolygon warUnit = buildQueue.pollFirst();
-			
+			spawner.spawnUnit(warUnit);
 			if(buildQueue.isEmpty())
 				neededBuildPoints = 0;
 			else

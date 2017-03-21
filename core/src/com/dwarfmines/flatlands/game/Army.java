@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.dwarfmines.flatlands.entities.InteractablePolygon;
-import com.dwarfmines.flatlands.entities.WarUnitPolygon;
 import com.dwarfmines.flatlands.jags.JagsBase;
 
 public class Army {
@@ -52,7 +51,6 @@ public class Army {
 	
 	private void addStructure(InteractablePolygon structure) {
 		stage.addActor(structure);
-		structure.setWarHUD(warHUD);
 		if(structures.containsKey(structure.getClass()))
 			structures.get(structure).add(structure);
 		else {
@@ -63,7 +61,6 @@ public class Army {
 	
 	public void addUnit(InteractablePolygon unit) {
 		stage.addActor(unit);
-		unit.setWarHUD(warHUD);
 		if(units.containsKey(unit.getClass()))
 			units.get(unit.getClass()).add(unit);
 		else {

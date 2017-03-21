@@ -11,6 +11,8 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.dwarfmines.flatlands.entities.components.UnitBuilder;
 import com.dwarfmines.flatlands.entities.template.Base;
 import com.dwarfmines.flatlands.game.Army;
+import com.dwarfmines.flatlands.game.WarHUD;
+
 import static com.dwarfmines.flatlands.util.UI.*;
 
 public class JagsBase extends Base {
@@ -37,7 +39,7 @@ public class JagsBase extends Base {
 			@Override
 			public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
 				//TODO: Check if click is inside the enclosed polygons
-				JagsBase.this.army.getWarHUD().setControls(JagsUI.JagsBaseUI());
+				WarHUD.getInstance().setControls(JagsUI.JagsBaseUI());
 				return true;
 			}
 		});

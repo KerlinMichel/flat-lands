@@ -1,17 +1,9 @@
 package com.dwarfmines.flatlands.gamescreen;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.dwarfmines.flatlands.FlatLands;
 import com.dwarfmines.flatlands.entities.Polygon;
 import com.dwarfmines.flatlands.game.Flatworld;
@@ -23,7 +15,7 @@ public class War extends GameScreen {
 	private Stage stage;
 	private Flatworld world;
 	
-	private WarHUD warHUD;
+	//private WarHUD warHUD;
 	private DesktopInput desktopInput;
 
 	public War(FlatLands flGame, Flatworld world) {
@@ -31,14 +23,14 @@ public class War extends GameScreen {
 		stage = new Stage();
 		this.world = world;
 		desktopInput = new DesktopInput(stage);
-		warHUD = new WarHUD(world.getPlayerArmy());
+		WarHUD.createInstance(world.getPlayerArmy());
 	}
 
 	@Override
 	public void show() {	
 		InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, desktopInput);
 		Gdx.input.setInputProcessor(inputMultiplexer);
-		world.init(stage, warHUD);
+		world.init(stage, WarHUD.getInstance());
 	}
 
 	@Override
@@ -50,7 +42,7 @@ public class War extends GameScreen {
 	    Polygon.polyBatch.setProjectionMatrix(stage.getCamera().combined);
 		stage.act(delta);
 		stage.draw();
-		warHUD.update(delta);
+		WarHUD.getInstance().update(delta);
 	}
 
 	@Override

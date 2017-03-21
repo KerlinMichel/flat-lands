@@ -14,10 +14,21 @@ public class WarHUD {
 	
 	private List<ImageButton> controls;
 	
-	public WarHUD(Army army) {
+	private static WarHUD warHUD;
+	
+	private WarHUD(Army army) {
 		this.army = army;
 		this.stage = new Stage();
 		controls = new ArrayList<ImageButton>();
+	}
+	
+	public static WarHUD createInstance(Army army) {
+		warHUD = new WarHUD(army);
+		return warHUD;
+	}
+	
+	public static WarHUD getInstance() {
+		return warHUD;
 	}
 	
 	public void update(float dt) {

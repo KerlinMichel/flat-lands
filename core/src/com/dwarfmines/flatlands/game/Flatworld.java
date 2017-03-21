@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Random;
 
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.dwarfmines.flatlands.util.MapUtil;
@@ -15,16 +14,15 @@ public class Flatworld {
 	
 	private List<Team> teams;
 	private Map map;
-	private Army playerArmy;
+	public static Army playerArmy;
 	private World world;
 	
 	public Flatworld(Army playerArmy, Team... teams) {
 		this.teams = new LinkedList<Team>();
-		this.playerArmy = playerArmy;
+		Flatworld.playerArmy = playerArmy;
 		for(Team team : teams)
 			this.teams.add(team);
-		//map = MapUtil.randomMap(MapUtil.defaultWidth, MapUtil.defaultHeight, 2);
-		map = MapUtil.randomMap(350, 350, 2);
+		map = MapUtil.randomMap(MapUtil.defaultWidth, MapUtil.defaultHeight, 2);
 		world = new World(new Vector2(0,0), true);
 	}
 	
