@@ -8,5 +8,7 @@ public interface UnitSpawner {
 	public Vector2 findSpawnPosition();
 	
 	public void spawnUnit(WarUnitPolygon warUnit);
+	
+	public void addToBuildQueue(WarUnitPolygon warUnit);
 
 }

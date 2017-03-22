@@ -30,7 +30,7 @@ public class Flatworld {
 	 * @param stage The stage that all polygons display on 
 	 * the map */
 	public void init(Stage stage, WarHUD warHUB) {
-		this.playerArmy.setWarHUD(warHUB);
+		Flatworld.playerArmy.setWarHUD(warHUB);
 		List<Vector2> baseLocs = new ArrayList<Vector2>(map.getBaseLocs());
 		for(Team team : teams) {
 			team.init(stage);

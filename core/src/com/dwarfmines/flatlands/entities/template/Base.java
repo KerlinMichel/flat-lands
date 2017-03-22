@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.dwarfmines.flatlands.entities.WarUnitPolygon;
+import com.dwarfmines.flatlands.entities.components.UnitBuilder;
 import com.dwarfmines.flatlands.game.Army;
 
 public abstract class Base extends WarUnitPolygon implements UnitSpawner {
@@ -31,4 +32,7 @@ public abstract class Base extends WarUnitPolygon implements UnitSpawner {
 		army.addUnit(warUnit);
 	}
 
+	public void addToBuildQueue(WarUnitPolygon unit) {
+		((UnitBuilder)getEntity().getComponent(UnitBuilder.class)).addToQueue(unit);
+	}
 }

@@ -60,5 +60,9 @@ public abstract class Polygon extends Actor {
 		this.setY(y);
 		poly.setPosition(x, y);
 	}
+	
+	public Entity getEntity() {
+		return entity;
+	}
 
 }
